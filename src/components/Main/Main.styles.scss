@@ -1,5 +1,31 @@
 .main-container {
-    border: 1px solid red;
     width: 1144px;
     height: 100vh;
+
+    .heading-container {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .total-amount-container {
+        background-color: #b2fce4;
+        height: 10%;
+        width: 100%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        padding: 1rem;
+    }
+
+    .list-container {
+        background-color: #fff;
+        height: 80%;
+        width: 100%;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 1rem;
+    }
 }
