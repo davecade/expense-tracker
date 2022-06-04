@@ -1,5 +1,6 @@
 import React from 'react'
 import './Main.styles.scss'
+import ListItem from '../ListItem/ListItem'
 
 const Main = () => {
   return (
@@ -16,7 +17,13 @@ const Main = () => {
             
         </div>
         <div className="list-container">
-          
+          <div className="list-titles">
+            <h4>Tracking</h4>
+            <h4>Amount</h4>
+          </div>
+          <div className="list-items">
+            <ListItem />
+          </div>
         </div>
     </div>
   )
