@@ -5,7 +5,6 @@ import ListItem from '../ListItem/ListItem'
 const Main = () => {
   return (
     <div className="main-container">
-
         <div className="heading-container">
           <h3>Category Name</h3>
           <h4 className="user-account">
@@ -14,7 +13,8 @@ const Main = () => {
         </div>
 
         <div className="total-amount-container">
-            
+            <h1 className="total-amount">$2000</h1>
+            <p>Total in bank</p>
         </div>
         <div className="list-container">
           <div className="list-titles">

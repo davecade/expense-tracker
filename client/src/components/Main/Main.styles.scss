@@ -12,12 +12,20 @@
     }
     
     .total-amount-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
         background-color: #b2fce4;
-        height: 10%;
+        height: 15%;
         width: 100%;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
-        padding: 1rem;
+        padding: 2rem;
+
+        .total-amount{
+            font-size: 40px;
+        }
     }
 
     .list-container {
