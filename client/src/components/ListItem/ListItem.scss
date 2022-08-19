@@ -1,0 +1,21 @@
+.list-item-container {
+    display: flex;
+    transition: background-color .3s;
+    
+    &:hover{
+        background-color: #3C3E52;
+        cursor: pointer;
+    }
+
+    .name {
+        padding: 1rem;
+        width: 15rem;
+        text-align: start;
+    }
+
+    .amount {
+        padding: 1rem;
+        width: 15rem;
+        text-align: start;
+    }
+}

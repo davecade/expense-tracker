@@ -1,8 +1,12 @@
 import React from 'react'
 import './Main.styles.scss'
 import ListItem from '../ListItem/ListItem'
+import { useRecoilValue } from 'recoil'
+import { AmountState } from '../../Atoms/Atoms'
 
 const Main = () => {
+  const amount = useRecoilValue(AmountState)
+
   return (
     <div className="main-container">
         <div className="heading-container">
@@ -12,17 +16,18 @@ const Main = () => {
           </h4>
         </div>
 
-        <div className="total-amount-container">
-            <h1 className="total-amount">$2000</h1>
+        <div className="amount-container">
+            <h1 className="amount">{amount}</h1>
             <p>Total in bank</p>
         </div>
         <div className="list-container">
           <div className="list-titles">
-            <h4>Tracking</h4>
-            <h4>Amount</h4>
+            <h4 className='title'>Tracking</h4>
+            <h4 className='title'>Amount</h4>
           </div>
           <div className="list-items">
-            <ListItem />
+            <ListItem name={"Savings"} amount={103.33} />
+            <ListItem name={"Car Shit"} amount={203} />
           </div>
         </div>
     </div>

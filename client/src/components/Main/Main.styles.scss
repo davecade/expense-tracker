@@ -11,29 +11,45 @@
         padding: 1rem;
     }
     
-    .total-amount-container {
+    .amount-container {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        background-color: #b2fce4;
+        background-color: #6201ed;
         height: 15%;
         width: 100%;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         padding: 2rem;
 
-        .total-amount{
+        .amount{
             font-size: 40px;
         }
     }
 
     .list-container {
-        background-color: #fff;
+        background-color: #222437;
         height: 80%;
         width: 100%;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         padding: 1rem;
+
+        .list-titles {
+            display: flex;
+
+            .title {
+                padding: 1rem;
+                width: 15rem;
+                text-align: start;
+            }
+
+        }
+
+        .list-items{
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
