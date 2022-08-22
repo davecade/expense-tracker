@@ -8,7 +8,7 @@ const ListItem = ({ name, amount }) => {
         {name}
       </div>
       <div className="amount">
-        {amount}
+        {`$${amount}`}
       </div>
     </div>
   )
