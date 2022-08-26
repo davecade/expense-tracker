@@ -1,5 +1,6 @@
 import React from 'react'
 import './ListItem.scss'
+import Button from '../Button/Button'
 
 const ListItem = ({ name, amount }) => {
   return (
@@ -10,6 +11,8 @@ const ListItem = ({ name, amount }) => {
       <div className="amount">
         {`$${amount}`}
       </div>
+      <Button title={"+"} color={"green"} />
+      <Button title={"-"} color={"red"} />
     </div>
   )
 }
