@@ -36,3 +36,11 @@
         background-color: #E63F5D;
     }
 }
+
+.button-container.black {
+    background-color: black;
+
+    &:hover{
+        background-color: #7F7E7E;
+    }
+}

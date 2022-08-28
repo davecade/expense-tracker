@@ -32,6 +32,13 @@ export const getInitialData = selector({
         const response = await axios.get(`/initialData`);
         return response.data.response;
     },
+    set: ({set}, initialData) => {
+        set(savings, initialData.savings.total)
+        set(carExpenses, initialData.carExpenses.total)
+        set(uberTax, initialData.uberTax.total)
+        set(petrol, initialData.petrol.total)
+        set(loans, initialData.loans.total)
+    }
 });
 
 export const totalInBank = selector({

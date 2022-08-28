@@ -17,4 +17,16 @@
         width: 15rem;
         text-align: start;
     }
+
+    .buttons-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

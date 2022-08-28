@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.styles.scss";
 import ListItem from "../ListItem/ListItem";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import {
     totalInBank,
     savings,
@@ -12,12 +12,12 @@ import {
 } from "../../Atoms/Atoms";
 
 const Main = () => {
-    const totalInBankState = useRecoilValue(totalInBank);
-    const savingsState = useRecoilValue(savings);
-    const carExpensesState = useRecoilValue(carExpenses);
-    const uberTaxState = useRecoilValue(uberTax);
-    const petrolState = useRecoilValue(petrol);
-    const loansState = useRecoilValue(loans);
+    const [ totalInBankState, setTotalInBankState] = useRecoilState(totalInBank);
+    const [ savingsState, setSavingsState ] = useRecoilState(savings);
+    const [ carExpensesState, setCarExpensesState ] = useRecoilState(carExpenses);
+    const [ uberTaxState, setUberTaxState ] = useRecoilState(uberTax);
+    const [ petrolState, setPetrolState ] = useRecoilState(petrol);
+    const [ loansState, setLoansState ] = useRecoilState(loans);
 
     return (
         <div className="main-container">
@@ -36,11 +36,11 @@ const Main = () => {
                     <h4 className="title">Amount</h4>
                 </div>
                 <div className="list-items">
-                    <ListItem name={"Savings"} amount={savingsState} />
-                    <ListItem name={"Uber Tax"} amount={uberTaxState} />
-                    <ListItem name={"Car Expenses"} amount={carExpensesState} />
-                    <ListItem name={"Petrol"} amount={petrolState} />
-                    <ListItem name={"Loans"} amount={loansState} />
+                    <ListItem name={"Savings"} amount={savingsState} setNewState={setSavingsState} />
+                    <ListItem name={"Uber Tax"} amount={uberTaxState} setNewState={setUberTaxState} />
+                    <ListItem name={"Car Expenses"} amount={carExpensesState} setNewState={setCarExpensesState} />
+                    <ListItem name={"Petrol"} amount={petrolState} setNewState={setPetrolState} />
+                    <ListItem name={"Loans"} amount={loansState} setNewState={setLoansState} />
                 </div>
             </div>
         </div>
