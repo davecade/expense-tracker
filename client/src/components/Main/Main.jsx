@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.styles.scss";
 import ListItem from "../ListItem/ListItem";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
     totalInBank,
     savings,
@@ -12,12 +12,17 @@ import {
 } from "../../Atoms/Atoms";
 
 const Main = () => {
-    const [ totalInBankState, setTotalInBankState] = useRecoilState(totalInBank);
+    const totalInBankState = useRecoilValue(totalInBank);
     const [ savingsState, setSavingsState ] = useRecoilState(savings);
     const [ carExpensesState, setCarExpensesState ] = useRecoilState(carExpenses);
     const [ uberTaxState, setUberTaxState ] = useRecoilState(uberTax);
     const [ petrolState, setPetrolState ] = useRecoilState(petrol);
     const [ loansState, setLoansState ] = useRecoilState(loans);
+
+    const formatNumber = number => {
+        const result = Number(number)
+        return result % 1 != 0 ? result.toFixed(2) : result
+    }
 
     return (
         <div className="main-container">
@@ -27,7 +32,7 @@ const Main = () => {
             </div>
 
             <div className="amount-container">
-                <h1 className="amount">{`$${totalInBankState}`}</h1>
+                <h1 className="amount">{`$${formatNumber(totalInBankState)}`}</h1>
                 <p>Total in bank</p>
             </div>
             <div className="list-container">

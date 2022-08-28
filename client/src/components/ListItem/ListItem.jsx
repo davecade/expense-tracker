@@ -9,10 +9,15 @@ const ListItem = ({ name, amount, setNewState }) => {
     const [inputValue, setInputValue] = useState("");
     const [currentInputAction, setCurrentInputAction] = useState(null);
 
+    const formatNumber = number => {
+        const result = Number(number)
+        return result % 1 != 0 ? result.toFixed(2) : result
+    }
+
     return (
         <div className="list-item-container">
             <div className="name">{name}</div>
-            <div className="amount">{`$${amount}`}</div>
+            <div className="amount">{`$${formatNumber(amount)}`}</div>
             {showButtons && (
                 <div className="buttons-container">
                     <Button
@@ -49,8 +54,6 @@ const ListItem = ({ name, amount, setNewState }) => {
                             setShowButtons(true);
                             setShowInputField(false);
                             if (currentInputAction === "add") {
-                                console.log("amount", amount)
-                                console.log("inputValue", inputValue)
                                 const newValue = amount + inputValue
                                 setNewState(newValue);
                             } else if (currentInputAction === "subtract") {

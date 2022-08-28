@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import axios from "axios";
+import { getInitialDataAsync } from '../api/api'
 
 export const savings = atom({
     key: "SAVINGS",
@@ -29,8 +29,8 @@ export const loans = atom({
 export const getInitialData = selector({
     key: "GET_INITIAL_DATA",
     get: async () => {
-        const response = await axios.get(`/initialData`);
-        return response.data.response;
+        const response = await getInitialDataAsync();
+        return response;
     },
     set: ({set}, initialData) => {
         set(savings, initialData.savings.total)
@@ -44,12 +44,9 @@ export const getInitialData = selector({
 export const totalInBank = selector({
     key: "TOTAL_IN_BANK",
     get: ({ get }) => {
-        const result =
-            get(savings) +
-            get(carExpenses) +
-            get(uberTax) +
-            get(petrol) +
-            get(loans);
+        const allItemsTracking = [get(savings), get(carExpenses), get(uberTax), get(petrol), get(loans)]
+        const sumOf = arr => arr.reduce((a,b) => a + b, 0)
+        const result = sumOf(allItemsTracking)
         return result;
     },
 });

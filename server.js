@@ -57,10 +57,7 @@ const db = {
 
 //-- Route Handlers --//
 const getInitialData = async (req, res) => {
-    console.log("CMONNN");
-    return res.status(200).send({
-        response: db,
-    });
+    return res.status(200).send(db);
 };
 
 //-- Routes --//
