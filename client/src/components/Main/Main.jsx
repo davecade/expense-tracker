@@ -21,7 +21,7 @@ const Main = () => {
 
     const formatNumber = number => {
         const result = Number(number)
-        return result % 1 != 0 ? result.toFixed(2) : result
+        return result % 1 !== 0 ? result.toFixed(2) : result
     }
 
     return (
@@ -48,6 +48,7 @@ const Main = () => {
                     <ListItem name={"Loans"} amount={loansState} setNewState={setLoansState} />
                 </div>
             </div>
+
         </div>
     );
 };

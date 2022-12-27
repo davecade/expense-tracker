@@ -1,9 +1,11 @@
 .main-container {
+    display: flex;
+    flex-direction: column;
     width: 1144px;
-    height: 100vh;
+    height: 100%;
+    
 
     .heading-container {
-        height: 10%;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -17,7 +19,6 @@
         align-items: flex-start;
         flex-direction: column;
         background-color: #6201ed;
-        height: 15%;
         width: 100%;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
@@ -30,11 +31,11 @@
 
     .list-container {
         background-color: #222437;
-        height: 80%;
         width: 100%;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         padding: 1rem;
+        flex: 1;
 
         .list-titles {
             display: flex;
