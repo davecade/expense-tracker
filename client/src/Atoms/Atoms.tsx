@@ -29,9 +29,10 @@ export const UserData = atom<T_UserData>({
 })
 
 export const savings = selector({
-    key: "SAVINGS",
+    key: "@ExpenseTracker_SAVINGS",
     get: ({get}) => {
         const userData = get(UserData)
+        if(!userData?.savings) return {transactions: [], total: 0}
         return userData.savings
     },
     set: ({get, set}, newVal) => {
@@ -42,43 +43,68 @@ export const savings = selector({
     }
 });
 
-export const carExpenses = atom({
-    key: "CAR_EXPENSES",
-    default: 0,
+export const carExpenses = selector({
+    key: "@ExpenseTracker_CAR_EXPENSES",
+    get: ({get}) => {
+        const userData = get(UserData)
+        if(!userData?.carExpenses) return {transactions: [], total: 0}
+        return userData.carExpenses
+    },
+    set: ({get, set}, newVal) => {
+        if (guardRecoilDefaultValue(newVal)) return
+        const userData: T_UserData = get(UserData)
+        const newUpdate: T_UserData = {...userData, carExpenses: newVal}
+        set(UserData, newUpdate)
+    }
 });
 
-export const uberTax = atom({
-    key: "UBER_TAX",
-    default: 0,
+export const uberTax = selector({
+    key: "@ExpenseTracker_UBER_TAX",
+    get: ({get}) => {
+        const userData = get(UserData)
+        if(!userData?.uberTax) return {transactions: [], total: 0}
+        return userData.uberTax
+    },
+    set: ({get, set}, newVal) => {
+        if (guardRecoilDefaultValue(newVal)) return
+        const userData: T_UserData = get(UserData)
+        const newUpdate: T_UserData = {...userData, uberTax: newVal}
+        set(UserData, newUpdate)
+    }
 });
 
-export const petrol = atom({
-    key: "PETROL",
-    default: 0,
+export const petrol = selector({
+    key: "@ExpenseTracker_PETROL",
+    get: ({get}) => {
+        const userData = get(UserData)
+        if(!userData?.petrol) return {transactions: [], total: 0}
+        return userData.petrol
+    },
+    set: ({get, set}, newVal) => {
+        if (guardRecoilDefaultValue(newVal)) return
+        const userData: T_UserData = get(UserData)
+        const newUpdate: T_UserData = {...userData, petrol: newVal}
+        set(UserData, newUpdate)
+    }
 });
 
-export const loans = atom({
-    key: "LOANS",
-    default: 0,
+export const loans = selector({
+    key: "@ExpenseTracker_LOANS",
+    get: ({get}) => {
+        const userData = get(UserData)
+        if(!userData?.loans) return {transactions: [], total: 0}
+        return userData.loans
+    },
+    set: ({get, set}, newVal) => {
+        if (guardRecoilDefaultValue(newVal)) return
+        const userData: T_UserData = get(UserData)
+        const newUpdate: T_UserData = {...userData, loans: newVal}
+        set(UserData, newUpdate)
+    }
 });
-
-// export const getInitialData = selector({
-//     key: "GET_INITIAL_DATA",
-//     get: async () => {
-//         const response = await getInitialDataAsync();
-//         return response;
-//     },
-//     set: ({set}, initialData) => {
-//         set(savings, initialData.savings.total)
-//         set(carExpenses, initialData.carExpenses.total)
-//         set(uberTax, initialData.uberTax.total)
-//         set(petrol, initialData.petrol.total)
-//         set(loans, initialData.loans.total)
-//     }
-// });
 
 export const totalInBank = selector({
-    key: "TOTAL_IN_BANK",
+    key: "@ExpenseTracker_TOTAL_IN_BANK",
     get: ({ get }) => {
         const allItemsTracking = [get(savings), get(carExpenses), get(uberTax), get(petrol), get(loans)]
         const sumOf = arr => arr.reduce((a,b) => a + b, 0)

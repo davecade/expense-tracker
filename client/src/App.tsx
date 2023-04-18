@@ -14,6 +14,7 @@ function App() {
 
     const fetchInitialData = async () => {
         const response: T_UserData = await getInitialDataAsync()
+        console.log("response", response)
         setUserData(response)
     }
 
