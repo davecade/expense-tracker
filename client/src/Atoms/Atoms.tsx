@@ -1,5 +1,6 @@
 import { atom, selector } from "recoil";
 import { T_UserData, T_TransactionFields } from '../Types/Types'
+import { guardRecoilDefaultValue } from '../Utils/guard'
 
 export const UserData = atom<T_UserData>({
     key: "@ExpenseTracker_USER_DATA",
@@ -34,12 +35,10 @@ export const savings = selector({
         return userData.savings
     },
     set: ({get, set}, newVal) => {
-        const userData: T_UserData = get<T_UserData>(UserData)
-        const newUpdate: T_UserData = {...userData, savings: {
-            transactions: newVal.transactions,
-            total: newVal.total
-        }}
-        set<T_UserData>(UserData, newUpdate)
+        if (guardRecoilDefaultValue(newVal)) return
+        const userData: T_UserData = get(UserData)
+        const newUpdate: T_UserData = {...userData, savings: newVal}
+        set(UserData, newUpdate)
     }
 });
 
