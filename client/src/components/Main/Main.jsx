@@ -23,7 +23,7 @@ const Main = () => {
         const result = Number(number)
         return result % 1 !== 0 ? result.toFixed(2) : result
     }
-
+    console.log("totalInBankState", totalInBankState)
     return (
         <div className="main-container">
             <div className="heading-container">
@@ -41,11 +41,11 @@ const Main = () => {
                     <h4 className="title">Amount</h4>
                 </div>
                 <div className="list-items">
-                    <ListItem name={"Savings"} amount={savingsState} setNewState={setSavingsState} />
-                    <ListItem name={"Uber Tax"} amount={uberTaxState} setNewState={setUberTaxState} />
-                    <ListItem name={"Car Expenses"} amount={carExpensesState} setNewState={setCarExpensesState} />
-                    <ListItem name={"Petrol"} amount={petrolState} setNewState={setPetrolState} />
-                    <ListItem name={"Loans"} amount={loansState} setNewState={setLoansState} />
+                    <ListItem name={"Savings"} amount={savingsState.total} setNewState={setSavingsState} />
+                    <ListItem name={"Uber Tax"} amount={uberTaxState.total} setNewState={setUberTaxState} />
+                    <ListItem name={"Car Expenses"} amount={carExpensesState.total} setNewState={setCarExpensesState} />
+                    <ListItem name={"Petrol"} amount={petrolState.total} setNewState={setPetrolState} />
+                    <ListItem name={"Loans"} amount={loansState.total} setNewState={setLoansState} />
                 </div>
             </div>
 

@@ -106,7 +106,7 @@ export const loans = selector({
 export const totalInBank = selector({
     key: "@ExpenseTracker_TOTAL_IN_BANK",
     get: ({ get }) => {
-        const allItemsTracking = [get(savings), get(carExpenses), get(uberTax), get(petrol), get(loans)]
+        const allItemsTracking = [get(savings).total, get(carExpenses).total, get(uberTax).total, get(petrol).total, get(loans).total]
         const sumOf = arr => arr.reduce((a,b) => a + b, 0)
         const result = sumOf(allItemsTracking)
         return result;
