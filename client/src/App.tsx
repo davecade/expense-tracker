@@ -5,7 +5,7 @@ import Main from "./components/Main/Main";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { UserData } from "./Atoms/Atoms";
-import { getInitialDataAsync } from './Api/Api'
+import { getInitialDataAsync } from './Utils/Api/Api'
 import { T_UserData } from "./Types/Types";
 
 
@@ -14,6 +14,7 @@ function App() {
 
     const fetchInitialData = async () => {
         const response: T_UserData = await getInitialDataAsync()
+        console.log("response", response)
         setUserData(response)
     }
 
