@@ -6,11 +6,19 @@ type ModalProps = {
     handleClose: () => any;
 };
 
-const Modal = ({ expenseType }: ModalProps) => {
+const Modal = ({ expenseType, handleClose }: ModalProps) => {
     return (
-        <div className="modal-background">
+        <div
+            className="modal-background"
+            data-testid="@ExpenseTracker_Modal_Container"
+        >
             <div className="modal">
-                <h1 className="modal-heading">Update</h1>
+                <div className="modal-heading-container">
+                    <h1 className="modal-heading">Update</h1>
+                    <div className="close-button" onClick={handleClose}>
+                        Close
+                    </div>
+                </div>
             </div>
         </div>
     );
