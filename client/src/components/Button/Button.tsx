@@ -9,7 +9,7 @@ type ButtonProps = {
 const Button = ({ title, onClick }: ButtonProps) => {
   return (
     <div className={`button-container`} onClick={onClick} data-testid='@ExpenseTracker_Button_Container'>
-        <div className='button'>{title}</div>
+        <div className='button' data-testid='@ExpenseTracker_Button_Title'>{title}</div>
     </div>
   )
 }
