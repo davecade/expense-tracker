@@ -7,9 +7,13 @@ describe("Modal Component", () => {
 
     it("Renders the Modal component", () => {
         const handleClose = jest.fn();
+        const mockData = {
+            transactions: [],
+            total: 60,
+        };
 
         const { getByTestId } = render(
-            <Modal expenseType={"Dave"} handleClose={handleClose} />
+            <Modal name={"Dave"} data={mockData} handleClose={handleClose} />
         );
 
         const container = getByTestId(TESTID_container);

@@ -32,12 +32,8 @@ const Main = () => {
                     <h4 className="title">Amount</h4>
                 </div>
                 <div className="list-items">
-                    {Object.keys(userData).map((field, i) => (
-                        <ListItem
-                            key={i}
-                            name={field}
-                            amount={userData[field].total}
-                        />
+                    {Object.keys(userData).map((field: string, i) => (
+                        <ListItem key={i} name={field} data={userData[field]} />
                     ))}
                 </div>
             </div>

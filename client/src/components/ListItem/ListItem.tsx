@@ -3,23 +3,21 @@ import "./ListItem.scss";
 import Button from "../Button/Button";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import { T_ExpenseFields } from "../../Types/Types";
+import { FieldDisplayName } from "../../Types/Enums";
 
 type ListItemProps = {
     name: string;
-    amount: number;
+    data: T_ExpenseFields;
 };
 
-const ListItem = ({ name, amount }: ListItemProps) => {
+const ListItem = ({ name, data }: ListItemProps) => {
     const [enableModal, setEnableModal] = useState(false);
+    const { total } = data;
 
-    const formatNumber = (number) => {
+    const formatNumber = (number: string | number): string | number => {
         const result = Number(number);
         return result % 1 !== 0 ? result.toFixed(2) : result;
-    };
-
-    const capitalizeFirstLetter = (str) => {
-        if (!str) return "";
-        return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
     return (
@@ -28,12 +26,12 @@ const ListItem = ({ name, amount }: ListItemProps) => {
             data-testid="@ExpenseTracker_ListItem_Container"
         >
             <div className="name" data-testid="@ExpenseTracker_ListItem_Name">
-                {capitalizeFirstLetter(name)}
+                {FieldDisplayName[name]}
             </div>
             <div
                 className="amount"
                 data-testid="@ExpenseTracker_ListItem_Amount"
-            >{`$${formatNumber(amount)}`}</div>
+            >{`$${formatNumber(total)}`}</div>
             <Button
                 title={"Update"}
                 onClick={() => {
@@ -42,7 +40,8 @@ const ListItem = ({ name, amount }: ListItemProps) => {
             />
             {enableModal && (
                 <Modal
-                    expenseType={name}
+                    name={name}
+                    data={data}
                     handleClose={() => setEnableModal(false)}
                 />
             )}
