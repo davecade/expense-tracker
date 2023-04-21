@@ -28,6 +28,12 @@ const Main = () => {
             </div>
             <div className="list-container">
                 <div className="list-titles">
+                    <span
+                        className="material-icons"
+                        style={{ visibility: "hidden" }}
+                    >
+                        savings
+                    </span>
                     <h4 className="title">Tracking</h4>
                     <h4 className="title">Amount</h4>
                 </div>

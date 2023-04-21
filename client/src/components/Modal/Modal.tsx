@@ -10,7 +10,6 @@ type ModalProps = {
 };
 
 const Modal = ({ name, data, handleClose }: ModalProps) => {
-    console.log("data", data);
     return (
         <div
             className="modal-background"
@@ -20,8 +19,11 @@ const Modal = ({ name, data, handleClose }: ModalProps) => {
                 <div className="modal-heading-container">
                     <h1 className="modal-heading">{FieldDisplayName[name]}</h1>
                     <div className="close-button" onClick={handleClose}>
-                        Close
+                        <span className="material-icons">close</span>
                     </div>
+                </div>
+                <div className="content-container">
+                    <h1 className="total-amount">{data.total}</h1>
                 </div>
             </div>
         </div>

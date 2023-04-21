@@ -20,11 +20,46 @@ const ListItem = ({ name, data }: ListItemProps) => {
         return result % 1 !== 0 ? result.toFixed(2) : result;
     };
 
+    const icon = (() => {
+        switch (name) {
+            case "savings":
+                return <span className="material-icons-round">savings</span>;
+
+            case "uberTax":
+                return (
+                    <span className="material-icons-round">
+                        delivery_dining
+                    </span>
+                );
+
+            case "carExpenses":
+                return <span className="material-icons-round">car_repair</span>;
+
+            case "petrol":
+                return (
+                    <span className="material-icons-round">
+                        local_gas_station
+                    </span>
+                );
+
+            case "loans":
+                return (
+                    <span className="material-icons-round">credit_score</span>
+                );
+        }
+    })();
+
     return (
         <div
             className="list-item-container"
             data-testid="@ExpenseTracker_ListItem_Container"
         >
+            <div
+                className="icon-container"
+                data-testid="@ExpenseTracker_ListItem_icon"
+            >
+                {icon}
+            </div>
             <div className="name" data-testid="@ExpenseTracker_ListItem_Name">
                 {FieldDisplayName[name]}
             </div>

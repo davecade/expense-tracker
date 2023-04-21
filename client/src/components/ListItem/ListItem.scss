@@ -1,24 +1,41 @@
 .list-item-container {
     display: flex;
     transition: background-color .3s;
+    padding-left: 1rem;
+
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     
     &:hover{
         background-color: #3C3E52;
     }
 
     .name {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         padding: 1rem;
         width: 15rem;
         text-align: start;
     }
 
     .amount {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         padding: 1rem;
         width: 15rem;
         text-align: start;
     }
 
     .buttons-container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         display: flex;
         justify-content: center;
         align-items: center;
