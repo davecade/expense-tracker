@@ -11,7 +11,7 @@ describe("ListItem Component", () => {
     const TESTID_modal = "@ExpenseTracker_Modal_Container";
     const TESTID_icon = "@ExpenseTracker_ListItem_icon";
 
-    it("Renders the ListItem component", () => {
+    it("Renders the ListItem component and clicks update button", () => {
         const TEXT_name = "savings";
         const mockData = {
             transactions: [],
@@ -25,15 +25,6 @@ describe("ListItem Component", () => {
         const container = getByTestId(TESTID_container);
         expect(container).toBeTruthy();
 
-        TESTID_icon;
-        const icon = getByTestId(TESTID_icon);
-        expect(icon).toBeTruthy();
-        expect(icon).toHaveTextContent("savings");
-
-        const name = getByTestId(TESTID_name);
-        expect(name).toBeTruthy();
-        expect(name).toHaveTextContent(FieldDisplayName[TEXT_name]);
-
         const amount = getByTestId(TESTID_amount);
         expect(amount).toBeTruthy();
         expect(amount).toHaveTextContent(`60`);
@@ -46,7 +37,6 @@ describe("ListItem Component", () => {
         expect(modal).toBeTruthy();
     });
 
-    // Tests icon
     const testData = [
         { name: "savings", icon: "savings" },
         { name: "uberTax", icon: "delivery_dining" },
@@ -56,7 +46,7 @@ describe("ListItem Component", () => {
     ];
 
     testData.forEach(({ name, icon }) => {
-        it(`tests if ${name} icon is correctly shown`, () => {
+        it(`tests if ${name} icon and display name is correctly shown`, () => {
             const mockData = {
                 transactions: [],
                 total: 60,
@@ -68,6 +58,10 @@ describe("ListItem Component", () => {
             const iconElement = getByTestId(TESTID_icon);
             expect(iconElement).toBeTruthy();
             expect(iconElement).toHaveTextContent(icon);
+
+            const FieldName = getByTestId(TESTID_name);
+            expect(FieldName).toBeTruthy();
+            expect(FieldName).toHaveTextContent(FieldDisplayName[name]);
         });
     });
 });

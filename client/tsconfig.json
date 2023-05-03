@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
+      "module": "CommonJS",
       "allowJs": true,
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "isolatedModules": true,
       "jsx": "react",
-      "lib": ["es2017"],
+      "lib": ["es2017", "es6", "dom"],
       "moduleResolution": "node",
       "noEmit": true,
       "strict": true,
-      "target": "esnext",
+      "target": "ESNext",
       "noImplicitAny": false,
     },
     "exclude": [
