@@ -16,6 +16,13 @@
         border-radius: 1rem;
         background-color: #1b1d2c;
         z-index: 20;
+        transition: all .5s;
+        position: absolute;
+        bottom: 20;
+        opacity: 1;
+        visibility: hidden;
+        transform: translateX(0%);
+        transform: translateY(100%);
 
         .modal-heading-container{
             border-bottom: 1px solid grey;

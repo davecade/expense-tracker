@@ -13,6 +13,7 @@ describe("Modal Component", () => {
             <Modal
                 name={testName}
                 data={testData}
+                isOpen={true}
                 handleClose={handleCloseMock}
             />
         );

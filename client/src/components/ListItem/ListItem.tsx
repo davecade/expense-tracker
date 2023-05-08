@@ -73,13 +73,12 @@ const ListItem = ({ name, data }: ListItemProps) => {
                     setEnableModal(true);
                 }}
             />
-            {enableModal && (
-                <Modal
-                    name={name}
-                    data={data}
-                    handleClose={() => setEnableModal(false)}
-                />
-            )}
+            <Modal
+                name={name}
+                data={data}
+                isOpen={enableModal}
+                handleClose={() => setEnableModal(false)}
+            />
         </div>
     );
 };
